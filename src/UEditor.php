@@ -15,8 +15,17 @@ class UEditor {
 
     }
 
-    public static function content($content ='' , $config = []) {
-        $defaultConfig=['id'=>'ueditor','name'=>'ueditor','class'=>'ueditor'];
+    /**
+     * 生成编辑器, 支持自定义name, default:ueditor
+     * 
+     * @param $content
+     * @param $name
+     * @param $config
+     *
+     * @return string
+     */
+    public static function content($content ='', $name='ueditor', $config = []) {
+        $defaultConfig=['id'=>'ueditor','name'=>$name,'class'=>'ueditor'];
         $config=array_merge($defaultConfig,$config);
         $attr = self::makeConfig2String($config);
         echo "<script type='text/plain' {$attr}>{$content}</script>";
